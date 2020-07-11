@@ -1,0 +1,34 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:                                                   #Creating Storage for EFS Provisioner
+  name: aws_efs
+provisioner: myefs/aws-efs
+#################################################################################################
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: efs_wordpress                                        #Creating PVC for WordPress
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+##################################################################################################
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: efs_mysql                                               #Creating PVC for MYSQL
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+####################################################################################
