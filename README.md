@@ -1,4 +1,4 @@
-######################################################################### 
+########################################################################### 
 Deploying-WordPress-and-MYSQL-using-Amazon-EKS-Elastic-Kubernetes-Service-
 This is a project created in which WordPress and MYSQL is deployed using Amazon EKS 
 EFS Provisioner is created and PVC is attached to it
